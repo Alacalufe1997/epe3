@@ -11,6 +11,9 @@ public class Prueba2 {
         System.out.println("Cruel");
         
         System.out.println("wenaaaa socio compañero viva el respeto en la sala");
+        System.out.println("Vamos a dejar la embarra");
+        System.out.println("espero que sirva");
+        System.out.println("A la verga wey");
     }
   
 }
