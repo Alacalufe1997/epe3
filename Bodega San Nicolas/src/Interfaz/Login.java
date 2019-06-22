@@ -12,6 +12,7 @@ package Interfaz;
 public class Login extends javax.swing.JFrame {
 
     Programacion.Sesion ver;
+    static String user2;
     public Login() {
         initComponents();
         setLocationRelativeTo(null);
@@ -117,6 +118,8 @@ public class Login extends javax.swing.JFrame {
        
         String user=tf_usuario.getText();
         String pass=tf_clave.getText();
+        user2=user;
+        
         int key=0;
             ver.users(user, pass, key);
             

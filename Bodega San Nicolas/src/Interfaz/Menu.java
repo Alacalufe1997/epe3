@@ -5,7 +5,14 @@
  */
 package Interfaz;
 import javax.swing.ButtonGroup;
-import Interfaz.VerUsuarios;
+import Interfaz.Login;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Nicolas
@@ -13,14 +20,13 @@ import Interfaz.VerUsuarios;
 public class Menu extends javax.swing.JFrame {
 
     
-    
     public Menu() {
         initComponents();
         setLocationRelativeTo(null);
         setTitle("Andes");
         setResizable(false);
-        
         configurarRB();
+        bloquear();
     }
     public void configurarRB(){
         
@@ -30,7 +36,34 @@ public class Menu extends javax.swing.JFrame {
         genero.add(rb_eliminar);
         genero.add(rb_ver);
         rb_ver.setSelected(true);
-    
+    }
+    public void bloquear(){
+        String user = Login.user2;
+        Connection conexion = null;
+        Statement sentencia = null;
+        ResultSet resultados = null;
+        String driver = "org.sqlite.JDBC";
+        String nombreBD = "andes.s3db";
+        String url = "jdbc:sqlite:"+nombreBD;
+        try{
+        Class.forName(driver);
+        conexion = DriverManager.getConnection(url);
+        sentencia = conexion.createStatement();
+        String sql = "SELECT cargo FROM usuario where user='"+user+"'";
+        resultados = sentencia.executeQuery(sql);
+             if (resultados.next()) {
+                 String cargo = resultados.getString("cargo");
+                 if ("administrador".equals(cargo)) {
+                     jTabbedPane1.setEnabledAt(2, false);
+                 }
+             }
+             
+        resultados.close();
+        sentencia.close();
+        conexion.close();
+      }catch(ClassNotFoundException | SQLException e){
+          System.out.println("Error: "+e.getMessage());
+      }
     }
 
     /**
