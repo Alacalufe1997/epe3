@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package Interfaz;
-import Programacion.Bbdd;
+import Interfaz.Menu;
 import Programacion.Usuario;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -19,7 +19,6 @@ import java.util.ArrayList;
  */
 public class VerUsuarios extends javax.swing.JFrame {
 
-    Programacion.Bbdd ver;
     ArrayList<Usuario> lista = new ArrayList<Usuario>();
     
     public VerUsuarios() {
@@ -27,7 +26,7 @@ public class VerUsuarios extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         setTitle("Andes");
         setResizable(false);
-        ver = new Programacion.Bbdd();
+        
     }
 
     /**
@@ -43,6 +42,7 @@ public class VerUsuarios extends javax.swing.JFrame {
         btn_ver = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabla_usuario = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -66,18 +66,31 @@ public class VerUsuarios extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tabla_usuario);
 
+        jButton1.setText("Atras");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(314, 314, 314)
+                        .addComponent(btn_ver, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 305, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(314, 314, 314)
-                .addComponent(btn_ver, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(315, Short.MAX_VALUE))
+                .addGap(70, 70, 70)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -86,7 +99,9 @@ public class VerUsuarios extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(89, 89, 89)
                 .addComponent(btn_ver, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(95, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(36, 36, 36))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -114,6 +129,12 @@ public class VerUsuarios extends javax.swing.JFrame {
         mostrarUsuario();
         
     }//GEN-LAST:event_btn_verActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Menu mn = new Menu();
+        mn.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
     
     public void mostrarUsuario(){
         
@@ -213,6 +234,7 @@ public class VerUsuarios extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_ver;
+    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tabla_usuario;
