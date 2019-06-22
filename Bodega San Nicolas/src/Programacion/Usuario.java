@@ -4,9 +4,9 @@ package Programacion;
 
 public class Usuario {
     
-    String id,nombre,apellido,edad,usuario,password,rut,fecha_ingreso,sueldo,fecha_nac;
+    String id,nombre,apellido,edad,usuario,password,rut,fecha_ingreso,sueldo,fecha_nac,cargo;
 
-    public Usuario(String id, String nombre, String apellido, String edad, String usuario, String password, String rut, String fecha_ingreso, String sueldo, String fecha_nac) {
+    public Usuario(String id, String nombre, String apellido, String edad, String usuario, String password, String rut, String fecha_ingreso, String sueldo, String fecha_nac, String cargo) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -17,6 +17,7 @@ public class Usuario {
         this.fecha_ingreso = fecha_ingreso;
         this.sueldo = sueldo;
         this.fecha_nac = fecha_nac;
+        this.cargo = cargo;
     }
 
     public String getId() {
@@ -99,7 +100,13 @@ public class Usuario {
         this.fecha_nac = fecha_nac;
     }
     
-    
+    public String getCargo() {
+        return cargo;
+    }
+
+    public void setCargo(String cargo) {
+        this.cargo = cargo;
+    }
     
 
         

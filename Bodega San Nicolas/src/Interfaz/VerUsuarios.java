@@ -55,13 +55,13 @@ public class VerUsuarios extends javax.swing.JFrame {
 
         tabla_usuario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "ID", "NOMBRE", "APELLIDO", "EDAD", "USUARIO", "PASSWORD", "RUT", "FECHA DE INGRESO", "SUELDO", "FECHA NACIMIENTO"
+                "ID", "NOMBRE", "APELLIDO", "EDAD", "USUARIO", "PASSWORD", "RUT", "FECHA DE INGRESO", "SUELDO", "FECHA NACIMIENTO", "CARGO"
             }
         ));
         jScrollPane1.setViewportView(tabla_usuario);
@@ -162,12 +162,13 @@ public class VerUsuarios extends javax.swing.JFrame {
             String fecha_ingreso = resultados.getString("fecha_ingreso");
             String sueldo = Integer.toString(resultados.getInt("sueldo"));
             String fecha_nac = resultados.getString("fecha_nac");
+            String cargo = resultados.getString("cargo");
             
-            Usuario usuario = new Usuario(id,nombre,apellido,edad,user,pass,rut,fecha_ingreso,sueldo,fecha_nac);
+            Usuario usuario = new Usuario(id,nombre,apellido,edad,user,pass,rut,fecha_ingreso,sueldo,fecha_nac,cargo);
             lista.add(usuario);
             
         }
-            String matriz[][] = new String[lista.size()][10];
+            String matriz[][] = new String[lista.size()][11];
              for (int i = 0; i < lista.size(); i++) {
                  matriz[i][0] = lista.get(i).getId();
                  matriz[i][1] = lista.get(i).getNombre();
@@ -179,12 +180,13 @@ public class VerUsuarios extends javax.swing.JFrame {
                  matriz[i][7] = lista.get(i).getFecha_ingreso();
                  matriz[i][8] = lista.get(i).getSueldo();
                  matriz[i][9] = lista.get(i).getFecha_nac();
+                 matriz[i][10] = lista.get(i).getCargo();
              }
              
              tabla_usuario.setModel(new javax.swing.table.DefaultTableModel(
                      matriz,
                      new String []{
-                         "ID","NOMBRE","APELLIDO","EDAD","USUARIO","PASSWORD","RUT","FECHA INGRESO","SUELDO","FECHA NACIMIENTO"
+                         "ID","NOMBRE","APELLIDO","EDAD","USUARIO","PASSWORD","RUT","FECHA INGRESO","SUELDO","FECHA NACIMIENTO","CARGO"
                      }
              ));
         

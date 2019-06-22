@@ -35,7 +35,7 @@ public class Sesion {
                  JOptionPane.showMessageDialog(null,"BIENVENIDO \n" + user,"Bienvenida",JOptionPane.DEFAULT_OPTION);
              }
              if (key==0) {
-                 JOptionPane.showMessageDialog(null,"Error");
+                 JOptionPane.showMessageDialog(null,"Usuario o Contraseña incorrecto!");
                  lg.setVisible(true);
                  
              }
