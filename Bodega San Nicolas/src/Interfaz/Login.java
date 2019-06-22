@@ -107,10 +107,11 @@ public class Login extends javax.swing.JFrame {
        
         String user=tf_usuario.getText();
         String pass=tf_clave.getText();
-        if(user.equals("admin")&& pass.equals("123")){
-            dispose();
-        }
-            ver.users(user, pass);
+        int key=0;
+            ver.users(user, pass, key);
+            
+            this.dispose();
+        
     }//GEN-LAST:event_btn_sesionActionPerformed
 
     /**
