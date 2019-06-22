@@ -17,7 +17,14 @@ public class Bbdd {
     String nombreBD = "andes.s3db";
     String url = "jdbc:sqlite:"+nombreBD;
     
-    public void mostrarDatos(){
+    public void mostrarUsuario(){
+        
+        Connection conexion = null;
+        Statement sentencia = null;
+        ResultSet resultados = null;
+        String driver = "org.sqlite.JDBC";
+        String nombreBD = "andes.s3db";
+        String url = "jdbc:sqlite:"+nombreBD;
         int cont = 0;
          try{
         Class.forName(driver);

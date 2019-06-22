@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package Interfaz;
-import Programacion.Bbdd;
 import javax.swing.ButtonGroup;
 import Interfaz.VerUsuarios;
 /**
@@ -13,14 +12,14 @@ import Interfaz.VerUsuarios;
  */
 public class Menu extends javax.swing.JFrame {
 
-    Programacion.Bbdd ver;
+    
     
     public Menu() {
         initComponents();
         setLocationRelativeTo(null);
         setTitle("Andes");
         setResizable(false);
-        ver = new Programacion.Bbdd();
+        
         configurarRB();
     }
     public void configurarRB(){
@@ -214,7 +213,7 @@ public class Menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        ver.mostrarDatos();
+        
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

@@ -5,6 +5,13 @@
  */
 package Interfaz;
 import Programacion.Bbdd;
+import Programacion.Usuario;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 
 /**
  *
@@ -13,6 +20,8 @@ import Programacion.Bbdd;
 public class VerUsuarios extends javax.swing.JFrame {
 
     Programacion.Bbdd ver;
+    ArrayList<Usuario> lista = new ArrayList<Usuario>();
+    
     public VerUsuarios() {
         initComponents();
         setLocationRelativeTo(null);
@@ -31,32 +40,11 @@ public class VerUsuarios extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTable_usuarios = new javax.swing.JTable();
         btn_ver = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tabla_usuario = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jTable_usuarios.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "ID", "Nombre", "Apellido", "Edad"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
-        jScrollPane2.setViewportView(jTable_usuarios);
 
         btn_ver.setText("Ver");
         btn_ver.addActionListener(new java.awt.event.ActionListener() {
@@ -65,25 +53,40 @@ public class VerUsuarios extends javax.swing.JFrame {
             }
         });
 
+        tabla_usuario.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "ID", "NOMBRE", "APELLIDO", "EDAD", "USUARIO", "PASSWORD", "RUT", "FECHA DE INGRESO", "SUELDO", "FECHA NACIMIENTO"
+            }
+        ));
+        jScrollPane1.setViewportView(tabla_usuario);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(111, 111, 111)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane2)
-                    .addComponent(btn_ver, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(117, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jScrollPane1)
+                .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(314, 314, 314)
+                .addComponent(btn_ver, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(315, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(48, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(161, 161, 161)
+                .addGap(46, 46, 46)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(89, 89, 89)
                 .addComponent(btn_ver, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(121, 121, 121))
+                .addContainerGap(95, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -108,21 +111,70 @@ public class VerUsuarios extends javax.swing.JFrame {
 
     private void btn_verActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_verActionPerformed
         
-        ver.mostrarDatos();
-        jTable_usuarios.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "ID", "Nombre", "Apellido", "Edad"
-            }
-        ));
+        mostrarUsuario();
         
     }//GEN-LAST:event_btn_verActionPerformed
-
+    
+    public void mostrarUsuario(){
+        
+        Connection conexion = null;
+        Statement sentencia = null;
+        ResultSet resultados = null;
+        String driver = "org.sqlite.JDBC";
+        String nombreBD = "andes.s3db";
+        String url = "jdbc:sqlite:"+nombreBD;
+         try{
+        Class.forName(driver);
+        conexion = DriverManager.getConnection(url);
+        sentencia = conexion.createStatement();
+        String sql = "SELECT * FROM usuario";
+        resultados = sentencia.executeQuery(sql);
+        while(resultados.next()){
+            
+            String id = Integer.toString(resultados.getInt("id"));
+            String nombre = resultados.getString("nombre");
+            String apellido = resultados.getString("apellido");
+            String edad = Integer.toString(resultados.getInt("edad"));
+            String user = resultados.getString("user");
+            String pass = resultados.getString("pass");
+            String rut = resultados.getString("rut");
+            String fecha_ingreso = resultados.getString("fecha_ingreso");
+            String sueldo = Integer.toString(resultados.getInt("sueldo"));
+            String fecha_nac = resultados.getString("fecha_nac");
+            
+            Usuario usuario = new Usuario(id,nombre,apellido,edad,user,pass,rut,fecha_ingreso,sueldo,fecha_nac);
+            lista.add(usuario);
+            
+        }
+            String matriz[][] = new String[lista.size()][10];
+             for (int i = 0; i < lista.size(); i++) {
+                 matriz[i][0] = lista.get(i).getId();
+                 matriz[i][1] = lista.get(i).getNombre();
+                 matriz[i][2] = lista.get(i).getApellido();
+                 matriz[i][3] = lista.get(i).getEdad();
+                 matriz[i][4] = lista.get(i).getUsuario();
+                 matriz[i][5] = lista.get(i).getPassword();
+                 matriz[i][6] = lista.get(i).getRut();
+                 matriz[i][7] = lista.get(i).getFecha_ingreso();
+                 matriz[i][8] = lista.get(i).getSueldo();
+                 matriz[i][9] = lista.get(i).getFecha_nac();
+             }
+             
+             tabla_usuario.setModel(new javax.swing.table.DefaultTableModel(
+                     matriz,
+                     new String []{
+                         "ID","NOMBRE","APELLIDO","EDAD","USUARIO","PASSWORD","RUT","FECHA INGRESO","SUELDO","FECHA NACIMIENTO"
+                     }
+             ));
+        
+        resultados.close();
+        sentencia.close();
+        conexion.close();
+      }catch(ClassNotFoundException | SQLException e){
+          System.out.println("Error: "+e.getMessage());
+      }
+       
+    }
     /**
      * @param args the command line arguments
      */
@@ -162,7 +214,7 @@ public class VerUsuarios extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_ver;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable_usuarios;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable tabla_usuario;
     // End of variables declaration//GEN-END:variables
 }
