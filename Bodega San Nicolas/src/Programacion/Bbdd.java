@@ -72,5 +72,54 @@ public class Bbdd {
         JOptionPane.showMessageDialog(null,"Usuario insertado con exito!" );
    
     }
+    public void mostrarDatos(int id){
+        
+         try{
+        Class.forName(driver);
+        conexion = DriverManager.getConnection(url);
+        sentencia = conexion.createStatement();
+        String sql = "SELECT * FROM usuario where id="+id;
+        resultados = sentencia.executeQuery(sql);
+        while(resultados.next()){
+            int idd = resultados.getInt("id");
+            String nombre = resultados.getString("nombre");
+            String apellido = resultados.getString("apellido");
+            int edad = resultados.getInt("edad");
+            String user = resultados.getString("user");
+            String pass = resultados.getString("pass");
+            String rut = resultados.getString("rut");
+            String fecha_ing = resultados.getString("fecha_ingreso");
+            int sueldo = resultados.getInt("sueldo");
+            String fechanac = resultados.getString("fecha_nac");
+            String cargo = resultados.getString("cargo");
+            
+            JOptionPane.showMessageDialog(null,"Id: "+idd+"\nNombre: "+nombre+"\nApellido: "+apellido+"\nEdad: "+edad+
+                    "\nUsuario: "+user+"\nRUT: "+rut+"\nFecha ingreso: "+fecha_ing+"\nSueldo: "+sueldo+"\nFecha nacimiento: "+fechanac+
+                    "\nCargo: "+cargo);
+        }
+        resultados.close();
+        sentencia.close();
+        conexion.close();
+      }catch(ClassNotFoundException | SQLException e){
+          JOptionPane.showMessageDialog(null,"Error: "+e.getMessage());
+      }
+       
+    }
+    public void eliminarUsuario(int id){
+        
+        try{
+        Class.forName(driver);
+        conexion = DriverManager.getConnection(url);
+        sentencia = conexion.createStatement();
+        String sql = "DELETE FROM usuario WHERE id="+id;
+        sentencia.executeUpdate(sql);
+        sentencia.close();
+        conexion.close();
+      }catch(ClassNotFoundException | SQLException e){
+          JOptionPane.showMessageDialog(null,"Error: "+e.getMessage());
+      }
+        JOptionPane.showMessageDialog(null,"Usuario Eliminado con exito!" );
+   
+    }
     
 }

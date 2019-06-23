@@ -10,6 +10,9 @@ public class Agregar extends javax.swing.JFrame {
     Programacion.Bbdd ver;
     public Agregar() {
         initComponents();
+        setLocationRelativeTo(null);
+        setTitle("Andes");
+        setResizable(false);
         configurarRB();
         ver = new Programacion.Bbdd();
     }
