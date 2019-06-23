@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 
 public class Bbdd {
@@ -119,6 +120,61 @@ public class Bbdd {
           JOptionPane.showMessageDialog(null,"Error: "+e.getMessage());
       }
         JOptionPane.showMessageDialog(null,"Usuario Eliminado con exito!" );
+   
+    }
+    public void modificarUsuario(int ID, JTextField tf_nombre,JTextField tf_apellido,JTextField tf_edad,JTextField tf_usuario,JTextField tf_pass,JTextField tf_rut,
+            JTextField tf_sueldo,JTextField tf_fechanac,JTextField tf_cargo){
+        
+         try{
+        Class.forName(driver);
+        conexion = DriverManager.getConnection(url);
+        sentencia = conexion.createStatement();
+        String sql = "SELECT * FROM usuario where id="+ID;
+        resultados = sentencia.executeQuery(sql);
+        while(resultados.next()){
+            String nombre = resultados.getString("nombre");
+            tf_nombre.setText(nombre);
+            String apellido = resultados.getString("apellido");
+            tf_apellido.setText(apellido);
+            String edad = Integer.toString(resultados.getInt("edad"));
+            tf_edad.setText(edad);
+            String user = resultados.getString("user");
+            tf_usuario.setText(user);
+            String pass = resultados.getString("pass");
+            tf_pass.setText(pass);
+            String rut = resultados.getString("rut");
+            tf_rut.setText(rut);
+            String sueldo = Integer.toString(resultados.getInt("sueldo"));
+            tf_sueldo.setText(sueldo);
+            String fechanac = resultados.getString("fecha_nac");
+            tf_fechanac.setText(fechanac);
+            String cargo = resultados.getString("cargo");
+            tf_cargo.setText(cargo);
+        }
+        resultados.close();
+        sentencia.close();
+        conexion.close();
+      }catch(ClassNotFoundException | SQLException e){
+          JOptionPane.showMessageDialog(null,"Error: "+e.getMessage());
+      }
+   
+    }
+    public void modificarUsuario2(String nombre, String apellido, int edad, String usuario, String pass, String rut,int sueldo,String fechanac,String cargo){
+        
+        try{
+        Class.forName(driver);
+        conexion = DriverManager.getConnection(url);
+        sentencia = conexion.createStatement();
+        String sql = "INSERT INTO usuario ("+
+                "nombre,apellido,edad,user,pass,rut,fecha_ingreso,sueldo,fecha_nac,cargo) VALUES"
+                + " ('"+nombre+"','"+apellido+"',"+edad+",'"+usuario+"','"+pass+"','"+rut+"',current_timestamp,"+sueldo+",'"+fechanac+"')";
+        sentencia.executeUpdate(sql);
+        sentencia.close();
+        conexion.close();
+      }catch(ClassNotFoundException | SQLException e){
+          System.out.println("Error: "+e.getMessage());
+      }
+        JOptionPane.showMessageDialog(null,"Usuario insertado con exito!" );
    
     }
     
