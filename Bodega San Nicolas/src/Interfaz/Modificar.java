@@ -261,7 +261,8 @@ public class Modificar extends javax.swing.JFrame {
         int sueldo=Integer.parseInt(tf_sueldo.getText());
         String fechanac=tf_fechanac.getText();
         String cargo=tf_cargo.getText();
-        ver.modificarUsuario2(nombre, apellido, edad, usuario, pass, rut, sueldo, fechanac,cargo);
+        int ID= Integer.parseInt(tf_id.getText());
+        ver.modificarUsuario2(ID,nombre, apellido, edad, usuario, pass, rut, sueldo, fechanac,cargo);
     }//GEN-LAST:event_btn_modificarActionPerformed
 
     private void btn_atrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_atrasActionPerformed

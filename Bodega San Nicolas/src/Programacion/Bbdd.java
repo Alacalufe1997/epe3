@@ -159,22 +159,22 @@ public class Bbdd {
       }
    
     }
-    public void modificarUsuario2(String nombre, String apellido, int edad, String usuario, String pass, String rut,int sueldo,String fechanac,String cargo){
+    public void modificarUsuario2(int ID,String nombre, String apellido, int edad, String usuario, String pass, String rut,int sueldo,String fechanac,String cargo){
         
         try{
         Class.forName(driver);
         conexion = DriverManager.getConnection(url);
         sentencia = conexion.createStatement();
-        String sql = "INSERT INTO usuario ("+
-                "nombre,apellido,edad,user,pass,rut,fecha_ingreso,sueldo,fecha_nac,cargo) VALUES"
-                + " ('"+nombre+"','"+apellido+"',"+edad+",'"+usuario+"','"+pass+"','"+rut+"',current_timestamp,"+sueldo+",'"+fechanac+"')";
+        String sql = "UPDATE usuario SET "+
+                "nombre='"+nombre+"',apellido='"+apellido+"',edad="+edad+",user='"+usuario+"',pass='"+pass+"',rut='"+rut+"',sueldo="+sueldo+",fecha_nac='"+fechanac+"',cargo='"+cargo+"'"
+                + "WHERE id="+ID;
         sentencia.executeUpdate(sql);
         sentencia.close();
         conexion.close();
       }catch(ClassNotFoundException | SQLException e){
           System.out.println("Error: "+e.getMessage());
       }
-        JOptionPane.showMessageDialog(null,"Usuario insertado con exito!" );
+        JOptionPane.showMessageDialog(null,"Usuario modificado con exito!" );
    
     }
     
