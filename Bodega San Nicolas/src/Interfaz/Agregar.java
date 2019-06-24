@@ -49,7 +49,6 @@ public class Agregar extends javax.swing.JFrame {
         tf_apellido = new javax.swing.JTextField();
         tf_edad = new javax.swing.JTextField();
         tf_usuario = new javax.swing.JTextField();
-        tf_pass = new javax.swing.JTextField();
         tf_rut = new javax.swing.JTextField();
         tf_sueldo = new javax.swing.JTextField();
         tf_fechanac = new javax.swing.JTextField();
@@ -59,6 +58,8 @@ public class Agregar extends javax.swing.JFrame {
         btn_atras = new javax.swing.JButton();
         btn_ingresar = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
+        tf_pass = new javax.swing.JPasswordField();
+        jLabel12 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -98,7 +99,7 @@ public class Agregar extends javax.swing.JFrame {
 
         rb_bode.setText("Bodeguero");
 
-        rb_ven.setText("Vendedor");
+        rb_ven.setText("Guardia");
 
         btn_atras.setText("Atras");
         btn_atras.addActionListener(new java.awt.event.ActionListener() {
@@ -116,6 +117,8 @@ public class Agregar extends javax.swing.JFrame {
         });
 
         jLabel9.setText("AAAA-MM-DD");
+
+        jLabel12.setText("Ej: 16254865-2");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -182,11 +185,12 @@ public class Agregar extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel10)
-                                    .addComponent(jLabel11))
+                                    .addComponent(jLabel11)
+                                    .addComponent(jLabel12))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(tf_pass, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE)
-                                    .addComponent(tf_apellido)))
+                                    .addComponent(tf_apellido, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE)
+                                    .addComponent(tf_pass)))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(btn_ingresar, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -216,7 +220,8 @@ public class Agregar extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(tf_rut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tf_rut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel12))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
@@ -278,7 +283,7 @@ public class Agregar extends javax.swing.JFrame {
             ver.ingresoUsuario2(nombre,apellido,edad,usuario,pass,rut,sueldo,fechanac,bode);
         }
         if (rb_ven.isSelected()) {
-            ven="vendedor";
+            ven="guardia";
             ver.ingresoUsuario3(nombre,apellido,edad,usuario,pass,rut,sueldo,fechanac,ven);
         }
     }//GEN-LAST:event_btn_ingresarActionPerformed
@@ -330,6 +335,7 @@ public class Agregar extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -346,7 +352,7 @@ public class Agregar extends javax.swing.JFrame {
     private javax.swing.JTextField tf_edad;
     private javax.swing.JTextField tf_fechanac;
     private javax.swing.JTextField tf_nombre;
-    private javax.swing.JTextField tf_pass;
+    private javax.swing.JPasswordField tf_pass;
     private javax.swing.JTextField tf_rut;
     private javax.swing.JTextField tf_sueldo;
     private javax.swing.JTextField tf_usuario;

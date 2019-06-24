@@ -26,16 +26,25 @@ public class Menu extends javax.swing.JFrame {
         setTitle("Andes");
         setResizable(false);
         configurarRB();
+        configurarRB2();
         bloquear();
     }
     public void configurarRB(){
         
-        ButtonGroup genero = new ButtonGroup();
-        genero.add(rb_agregar);
-        genero.add(rb_modificar);
-        genero.add(rb_eliminar);
-        genero.add(rb_ver);
+        ButtonGroup usuario = new ButtonGroup();
+        usuario.add(rb_agregar);
+        usuario.add(rb_modificar);
+        usuario.add(rb_eliminar);
+        usuario.add(rb_ver);
         rb_ver.setSelected(true);
+    }
+    public void configurarRB2(){
+        
+        ButtonGroup producto = new ButtonGroup();
+        producto.add(rb_ingreso);
+        producto.add(rb_salida);
+        producto.add(rb_productos);
+        rb_productos.setSelected(true);
     }
     public void bloquear(){
         String user = Login.user2;
@@ -43,7 +52,7 @@ public class Menu extends javax.swing.JFrame {
         Statement sentencia = null;
         ResultSet resultados = null;
         String driver = "org.sqlite.JDBC";
-        String nombreBD = "andes.s3db";
+        String nombreBD = "LosVinedos.s3db";
         String url = "jdbc:sqlite:"+nombreBD;
         try{
         Class.forName(driver);
@@ -53,8 +62,13 @@ public class Menu extends javax.swing.JFrame {
         resultados = sentencia.executeQuery(sql);
              if (resultados.next()) {
                  String cargo = resultados.getString("cargo");
-                 if ("administrador".equals(cargo)) {
-                     jTabbedPane1.setEnabledAt(2, false);
+                 if ("bodeguero".equals(cargo)) {
+                     jTabbedPane1.setEnabledAt(1, false);
+                     
+                 }
+                 if ("guardia".equals(cargo)) {
+                     jTabbedPane1.setEnabledAt(1, false);
+                     
                  }
              }
              
@@ -77,20 +91,67 @@ public class Menu extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
+        jPanel5 = new javax.swing.JPanel();
+        rb_ingreso = new javax.swing.JRadioButton();
+        rb_salida = new javax.swing.JRadioButton();
+        rb_productos = new javax.swing.JRadioButton();
+        btn_acpetproducto = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         rb_agregar = new javax.swing.JRadioButton();
         rb_modificar = new javax.swing.JRadioButton();
         rb_eliminar = new javax.swing.JRadioButton();
         rb_ver = new javax.swing.JRadioButton();
         jButton1 = new javax.swing.JButton();
-        jPanel3 = new javax.swing.JPanel();
-        jButton4 = new javax.swing.JButton();
-        jPanel4 = new javax.swing.JPanel();
-        jPanel5 = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        rb_ingreso.setText("Ingreso de productos");
+
+        rb_salida.setText("Salida de productos");
+
+        rb_productos.setText("Ver productos");
+
+        btn_acpetproducto.setText("ACEPTAR");
+        btn_acpetproducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_acpetproductoActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(166, 166, 166)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(rb_productos)
+                            .addComponent(rb_salida)
+                            .addComponent(rb_ingreso)))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(110, 110, 110)
+                        .addComponent(btn_acpetproducto, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(123, Short.MAX_VALUE))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(70, 70, 70)
+                .addComponent(rb_ingreso)
+                .addGap(18, 18, 18)
+                .addComponent(rb_salida)
+                .addGap(18, 18, 18)
+                .addComponent(rb_productos)
+                .addGap(70, 70, 70)
+                .addComponent(btn_acpetproducto, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(107, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Productos", jPanel5);
 
         rb_agregar.setText("Agregar Usuario");
 
@@ -142,58 +203,6 @@ public class Menu extends javax.swing.JFrame {
         );
 
         jTabbedPane1.addTab("Usuarios", jPanel2);
-
-        jButton4.setText("Montar BBDD");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(181, 181, 181)
-                .addComponent(jButton4)
-                .addContainerGap(193, Short.MAX_VALUE))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(220, Short.MAX_VALUE)
-                .addComponent(jButton4)
-                .addGap(141, 141, 141))
-        );
-
-        jTabbedPane1.addTab("BBDD", jPanel3);
-
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 469, Short.MAX_VALUE)
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 384, Short.MAX_VALUE)
-        );
-
-        jTabbedPane1.addTab("tab3", jPanel4);
-
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 469, Short.MAX_VALUE)
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 384, Short.MAX_VALUE)
-        );
-
-        jTabbedPane1.addTab("tab4", jPanel5);
 
         jButton2.setText("Desconectar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -255,33 +264,6 @@ public class Menu extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        
-    }//GEN-LAST:event_jButton4ActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        if (rb_ver.isSelected()) {
-            VerUsuarios vu = new VerUsuarios();
-            vu.setVisible(true);
-            this.dispose(); 
-        }
-        if (rb_agregar.isSelected()) {
-            Agregar ag = new Agregar();
-            ag.setVisible(true);
-            this.dispose(); 
-        }
-        if (rb_eliminar.isSelected()) {
-            Eliminar el = new Eliminar();
-            el.setVisible(true);
-            this.dispose(); 
-        }
-        if (rb_modificar.isSelected()) {
-            Modificar md = new Modificar();
-            md.setVisible(true);
-            this.dispose(); 
-        }
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         Login lg = new Login();
             lg.setVisible(true);
@@ -291,6 +273,47 @@ public class Menu extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         System.exit(0);
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        if (rb_ver.isSelected()) {
+            VerUsuarios vu = new VerUsuarios();
+            vu.setVisible(true);
+            this.dispose();
+        }
+        if (rb_agregar.isSelected()) {
+            Agregar ag = new Agregar();
+            ag.setVisible(true);
+            this.dispose();
+        }
+        if (rb_eliminar.isSelected()) {
+            Eliminar el = new Eliminar();
+            el.setVisible(true);
+            this.dispose();
+        }
+        if (rb_modificar.isSelected()) {
+            Modificar md = new Modificar();
+            md.setVisible(true);
+            this.dispose();
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void btn_acpetproductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_acpetproductoActionPerformed
+        if (rb_productos.isSelected()) {
+            VerProductos vp = new VerProductos();
+            vp.setVisible(true);
+            this.dispose();
+        }
+//        if (rb_agregar.isSelected()) {
+//            Agregar ag = new Agregar();
+//            ag.setVisible(true);
+//            this.dispose();
+//        }
+//        if (rb_eliminar.isSelected()) {
+//            Eliminar el = new Eliminar();
+//            el.setVisible(true);
+//            this.dispose();
+//        }
+    }//GEN-LAST:event_btn_acpetproductoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -328,19 +351,20 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_acpetproducto;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JRadioButton rb_agregar;
     private javax.swing.JRadioButton rb_eliminar;
+    private javax.swing.JRadioButton rb_ingreso;
     private javax.swing.JRadioButton rb_modificar;
+    private javax.swing.JRadioButton rb_productos;
+    private javax.swing.JRadioButton rb_salida;
     private javax.swing.JRadioButton rb_ver;
     // End of variables declaration//GEN-END:variables
 }

@@ -15,7 +15,7 @@ public class Sesion {
     Statement sentencia = null;
     ResultSet resultados = null;
     String driver = "org.sqlite.JDBC";
-    String nombreBD = "andes.s3db";
+    String nombreBD = "LosVinedos.s3db";
     String url = "jdbc:sqlite:"+nombreBD;
     
     public void users(String user,String pass, int key){

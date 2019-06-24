@@ -1,33 +1,23 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Interfaz;
-import Interfaz.Menu;
-import Programacion.Usuario;
+
+import Programacion.Producto;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import javax.swing.JOptionPane;
 
-/**
- *
- * @author Alacalufe
- */
-public class VerUsuarios extends javax.swing.JFrame {
 
-    ArrayList<Usuario> lista = new ArrayList<Usuario>();
-    
-    public VerUsuarios() {
+public class VerProductos extends javax.swing.JFrame {
+
+    ArrayList<Producto> lista2 = new ArrayList<Producto>();
+    public VerProductos() {
         initComponents();
         setLocationRelativeTo(null);
         setTitle("Andes");
         setResizable(false);
-        
     }
 
     /**
@@ -40,45 +30,48 @@ public class VerUsuarios extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        btn_ver = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tabla_usuario = new javax.swing.JTable();
+        tabla_productos = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        btn_ver.setText("Ver");
-        btn_ver.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_verActionPerformed(evt);
-            }
-        });
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Ver Productos"));
 
-        tabla_usuario.setModel(new javax.swing.table.DefaultTableModel(
+        tabla_productos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "ID", "NOMBRE", "APELLIDO", "EDAD", "USUARIO", "PASSWORD", "RUT", "FECHA DE INGRESO", "SUELDO", "FECHA NACIMIENTO", "CARGO"
+                "ID", "NOMBRE", "CANTIDAD", "DESCRIPCION"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, false, false
+                false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(tabla_usuario);
+        tabla_productos.setRowHeight(30);
+        jScrollPane1.setViewportView(tabla_productos);
 
-        jButton1.setText("Atras");
+        jButton1.setText("VER PRODUCTOS");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("Atras");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
             }
         });
 
@@ -89,28 +82,26 @@ public class VerUsuarios extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1))
+                        .addGap(140, 140, 140)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(314, 314, 314)
-                        .addComponent(btn_ver, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 305, Short.MAX_VALUE)))
-                .addContainerGap())
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(70, 70, 70)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(24, 24, 24)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 525, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(46, 46, 46)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(89, 89, 89)
-                .addComponent(btn_ver, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 121, Short.MAX_VALUE)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(62, 62, 62)
+                .addComponent(jButton2)
+                .addGap(28, 28, 28))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -133,19 +124,16 @@ public class VerUsuarios extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btn_verActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_verActionPerformed
-        
-        mostrarUsuario();
-        
-    }//GEN-LAST:event_btn_verActionPerformed
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        mostrarProducto();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         Menu mn = new Menu();
         mn.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
-    
-    public void mostrarUsuario(){
+    }//GEN-LAST:event_jButton2ActionPerformed
+    public void mostrarProducto(){
         
         Connection conexion = null;
         Statement sentencia = null;
@@ -157,45 +145,32 @@ public class VerUsuarios extends javax.swing.JFrame {
         Class.forName(driver);
         conexion = DriverManager.getConnection(url);
         sentencia = conexion.createStatement();
-        String sql = "SELECT * FROM usuario";
+        String sql = "SELECT * FROM producto";
         resultados = sentencia.executeQuery(sql);
         while(resultados.next()){
             
             String id = Integer.toString(resultados.getInt("id"));
             String nombre = resultados.getString("nombre");
-            String apellido = resultados.getString("apellido");
-            String edad = Integer.toString(resultados.getInt("edad"));
-            String user = resultados.getString("user");
-            String pass = resultados.getString("pass");
-            String rut = resultados.getString("rut");
-            String fecha_ingreso = resultados.getString("fecha_ingreso");
-            String sueldo = Integer.toString(resultados.getInt("sueldo"));
-            String fecha_nac = resultados.getString("fecha_nac");
-            String cargo = resultados.getString("cargo");
+            String cantidad = resultados.getString("cantidad");
+            String descripcion = resultados.getString("descripcion");
             
-            Usuario usuario = new Usuario(id,nombre,apellido,edad,user,pass,rut,fecha_ingreso,sueldo,fecha_nac,cargo);
-            lista.add(usuario);
+            Producto producto = new Producto(id,nombre,cantidad,descripcion);
+            lista2.add(producto);
             
         }
-            String matriz[][] = new String[lista.size()][11];
-             for (int i = 0; i < lista.size(); i++) {
-                 matriz[i][0] = lista.get(i).getId();
-                 matriz[i][1] = lista.get(i).getNombre();
-                 matriz[i][2] = lista.get(i).getApellido();
-                 matriz[i][3] = lista.get(i).getEdad();
-                 matriz[i][4] = lista.get(i).getUsuario();
-                 matriz[i][5] = lista.get(i).getPassword();
-                 matriz[i][6] = lista.get(i).getRut();
-                 matriz[i][7] = lista.get(i).getFecha_ingreso();
-                 matriz[i][8] = lista.get(i).getSueldo();
-                 matriz[i][9] = lista.get(i).getFecha_nac();
-                 matriz[i][10] = lista.get(i).getCargo();
+            String matriz2[][] = new String[lista2.size()][4];
+             for (int i = 0; i < lista2.size(); i++) {
+                 matriz2[i][0] = lista2.get(i).getId_pro();
+                 matriz2[i][1] = lista2.get(i).getNombre_pro();
+                 matriz2[i][2] = lista2.get(i).getCantidad();
+                 matriz2[i][3] = lista2.get(i).getDescripcion();
+                 
              }
              
-             tabla_usuario.setModel(new javax.swing.table.DefaultTableModel(
-                     matriz,
+             tabla_productos.setModel(new javax.swing.table.DefaultTableModel(
+                     matriz2,
                      new String []{
-                         "ID","NOMBRE","APELLIDO","EDAD","USUARIO","PASSWORD","RUT","FECHA INGRESO","SUELDO","FECHA NACIMIENTO","CARGO"
+                         "ID","NOMBRE","CANTIDAD","DESCRIPCION"
                      }
              ));
         
@@ -203,7 +178,7 @@ public class VerUsuarios extends javax.swing.JFrame {
         sentencia.close();
         conexion.close();
       }catch(ClassNotFoundException | SQLException e){
-          JOptionPane.showMessageDialog(null, "Error: "+e.getMessage());
+          System.out.println("Error: "+e.getMessage());
       }
        
     }
@@ -224,30 +199,29 @@ public class VerUsuarios extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VerUsuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VerProductos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VerUsuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VerProductos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VerUsuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VerProductos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VerUsuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VerProductos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VerUsuarios().setVisible(true);
+                new VerProductos().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_ver;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tabla_usuario;
+    private javax.swing.JTable tabla_productos;
     // End of variables declaration//GEN-END:variables
 }

@@ -16,7 +16,7 @@ public class Bbdd {
     Statement sentencia = null;
     ResultSet resultados = null;
     String driver = "org.sqlite.JDBC";
-    String nombreBD = "andes.s3db";
+    String nombreBD = "LosVinedos.s3db";
     String url = "jdbc:sqlite:"+nombreBD;
     
     public void ingresoUsuario(String nombre, String apellido, int edad, String usuario, String pass, String rut,int sueldo,String fechanac,String admin){
@@ -26,8 +26,8 @@ public class Bbdd {
         conexion = DriverManager.getConnection(url);
         sentencia = conexion.createStatement();
         String sql = "INSERT INTO usuario ("+
-                "nombre,apellido,edad,user,pass,rut,fecha_ingreso,sueldo,fecha_nac,cargo) VALUES"
-                + " ('"+nombre+"','"+apellido+"',"+edad+",'"+usuario+"','"+pass+"','"+rut+"',current_timestamp,"+sueldo+",'"+fechanac+"','"+admin+"')";
+                "nombre,apellido,edad,user,pass,rut,sueldo,fecha_nac,cargo) VALUES"
+                + " ('"+nombre+"','"+apellido+"',"+edad+",'"+usuario+"','"+pass+"','"+rut+"',"+sueldo+",'"+fechanac+"','"+admin+"')";
         sentencia.executeUpdate(sql);
         sentencia.close();
         conexion.close();
@@ -44,8 +44,8 @@ public class Bbdd {
         conexion = DriverManager.getConnection(url);
         sentencia = conexion.createStatement();
         String sql = "INSERT INTO usuario ("+
-                "nombre,apellido,edad,user,pass,rut,fecha_ingreso,sueldo,fecha_nac,cargo) VALUES"
-                + " ('"+nombre+"','"+apellido+"',"+edad+",'"+usuario+"','"+pass+"','"+rut+"',current_timestamp,"+sueldo+",'"+fechanac+"','"+bode+"')";
+                "nombre,apellido,edad,user,pass,rut,sueldo,fecha_nac,cargo) VALUES"
+                + " ('"+nombre+"','"+apellido+"',"+edad+",'"+usuario+"','"+pass+"','"+rut+"',"+sueldo+",'"+fechanac+"','"+bode+"')";
         sentencia.executeUpdate(sql);
         sentencia.close();
         conexion.close();
@@ -62,8 +62,8 @@ public class Bbdd {
         conexion = DriverManager.getConnection(url);
         sentencia = conexion.createStatement();
         String sql = "INSERT INTO usuario ("+
-                "nombre,apellido,edad,user,pass,rut,fecha_ingreso,sueldo,fecha_nac,cargo) VALUES"
-                + " ('"+nombre+"','"+apellido+"',"+edad+",'"+usuario+"','"+pass+"','"+rut+"',current_timestamp,"+sueldo+",'"+fechanac+"','"+ven+"')";
+                "nombre,apellido,edad,user,pass,rut,sueldo,fecha_nac,cargo) VALUES"
+                + " ('"+nombre+"','"+apellido+"',"+edad+",'"+usuario+"','"+pass+"','"+rut+"',"+sueldo+",'"+fechanac+"','"+ven+"')";
         sentencia.executeUpdate(sql);
         sentencia.close();
         conexion.close();
