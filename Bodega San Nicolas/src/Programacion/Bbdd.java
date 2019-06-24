@@ -13,11 +13,13 @@
 //limitations under the License.
 package Programacion;
 
+import Interfaz.Login;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
@@ -106,9 +108,10 @@ public class Bbdd {
             String fechanac = resultados.getString("fecha_nac");
             String cargo = resultados.getString("cargo");
             
+            ImageIcon icono_user = new ImageIcon (Login.class.getResource("/imagenes/usuario.png"));
             JOptionPane.showMessageDialog(null,"Id: "+idd+"\nNombre: "+nombre+"\nApellido: "+apellido+"\nEdad: "+edad+
                     "\nUsuario: "+user+"\nRUT: "+rut+"\nFecha ingreso: "+fecha_ing+"\nSueldo: "+sueldo+"\nFecha nacimiento: "+fechanac+
-                    "\nCargo: "+cargo);
+                    "\nCargo: "+cargo, "Usuario Encontrado", JOptionPane.DEFAULT_OPTION, icono_user);
         }
         resultados.close();
         sentencia.close();
@@ -132,6 +135,7 @@ public class Bbdd {
           JOptionPane.showMessageDialog(null,"Error: "+e.getMessage());
       }
         JOptionPane.showMessageDialog(null,"Usuario Eliminado con exito!" );
+        
    
     }
     public void modificarUsuario(int ID, JTextField tf_nombre,JTextField tf_apellido,JTextField tf_edad,JTextField tf_usuario,JTextField tf_pass,JTextField tf_rut,
