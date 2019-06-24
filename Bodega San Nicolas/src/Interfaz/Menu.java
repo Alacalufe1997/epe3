@@ -303,11 +303,11 @@ public class Menu extends javax.swing.JFrame {
             vp.setVisible(true);
             this.dispose();
         }
-//        if (rb_agregar.isSelected()) {
-//            Agregar ag = new Agregar();
-//            ag.setVisible(true);
-//            this.dispose();
-//        }
+        if (rb_ingreso.isSelected()) {
+            IngresoProducto ip = new IngresoProducto();
+            ip.setVisible(true);
+            this.dispose();
+        }
 //        if (rb_eliminar.isSelected()) {
 //            Eliminar el = new Eliminar();
 //            el.setVisible(true);

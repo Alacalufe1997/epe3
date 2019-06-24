@@ -11,7 +11,7 @@ import javax.swing.JTextField;
 
 
 public class Bbdd {
-    
+    static int iddd;
     Connection conexion = null;
     Statement sentencia = null;
     ResultSet resultados = null;
@@ -175,6 +175,169 @@ public class Bbdd {
           System.out.println("Error: "+e.getMessage());
       }
         JOptionPane.showMessageDialog(null,"Usuario modificado con exito!" );
+   
+    }
+    public void ingresoProducto(String user,int reserva,int leon,int organico,int negra,int azul){
+        // conseguir el id del usuario que esta ingresando productos
+        try{
+        Class.forName(driver);
+        conexion = DriverManager.getConnection(url);
+        sentencia = conexion.createStatement();
+        String sql = "SELECT id FROM usuario where user='"+user+"'";
+        resultados = sentencia.executeQuery(sql);
+             if (resultados.next()) {
+                 iddd = resultados.getInt("id");
+             }
+             
+        resultados.close();
+        sentencia.close();
+        conexion.close();
+      }catch(ClassNotFoundException | SQLException e){
+          System.out.println("Error: "+e.getMessage());
+      }
+      if(reserva!=0){
+      // inserta el registro del producto Gran Reserva
+      try{
+        Class.forName(driver);
+        conexion = DriverManager.getConnection(url);
+        sentencia = conexion.createStatement();
+        String sql = "INSERT INTO ingreso_producto ("+
+                "id_user,id_producto,cantidad) VALUES"
+                + " ("+iddd+",2,"+reserva+")";
+        sentencia.executeUpdate(sql);
+        sentencia.close();
+        conexion.close();
+      }catch(ClassNotFoundException | SQLException e){
+          System.out.println("Error: "+e.getMessage());
+      }
+        
+      // Actualiza el stock del producto Gran Reserva  
+      try{
+        Class.forName(driver);
+        conexion = DriverManager.getConnection(url);
+        sentencia = conexion.createStatement();
+        String sql = "UPDATE producto SET cantidad=cantidad+"+reserva+" WHERE id=2";
+        sentencia.executeUpdate(sql);
+        sentencia.close();
+        conexion.close();
+      }catch(ClassNotFoundException | SQLException e){
+          System.out.println("Error: "+e.getMessage());
+      }
+      }  
+      if(leon!=0){  
+      // inserta el registro del producto Gran Leon
+      try{
+        Class.forName(driver);
+        conexion = DriverManager.getConnection(url);
+        sentencia = conexion.createStatement();
+        String sql = "INSERT INTO ingreso_producto ("+
+                "id_user,id_producto,cantidad) VALUES"
+                + " ("+iddd+",3,"+leon+")";
+        sentencia.executeUpdate(sql);
+        sentencia.close();
+        conexion.close();
+      }catch(ClassNotFoundException | SQLException e){
+          System.out.println("Error: "+e.getMessage());
+      }
+      // Actualiza el stock del producto Gran Leon  
+      try{
+        Class.forName(driver);
+        conexion = DriverManager.getConnection(url);
+        sentencia = conexion.createStatement();
+        String sql = "UPDATE producto SET cantidad=cantidad+"+leon+" WHERE id=3";
+        sentencia.executeUpdate(sql);
+        sentencia.close();
+        conexion.close();
+      }catch(ClassNotFoundException | SQLException e){
+          System.out.println("Error: "+e.getMessage());
+      }
+      }
+      
+      if(organico!=0){
+      // inserta el registro del producto Gran Reserva Organico
+      try{
+        Class.forName(driver);
+        conexion = DriverManager.getConnection(url);
+        sentencia = conexion.createStatement();
+        String sql = "INSERT INTO ingreso_producto ("+
+                "id_user,id_producto,cantidad) VALUES"
+                + " ("+iddd+",1,"+organico+")";
+        sentencia.executeUpdate(sql);
+        sentencia.close();
+        conexion.close();
+      }catch(ClassNotFoundException | SQLException e){
+          System.out.println("Error: "+e.getMessage());
+      }
+      // Actualiza el stock del producto Gran Reserva Organico 
+      try{
+        Class.forName(driver);
+        conexion = DriverManager.getConnection(url);
+        sentencia = conexion.createStatement();
+        String sql = "UPDATE producto SET cantidad=cantidad+"+organico+" WHERE id=1";
+        sentencia.executeUpdate(sql);
+        sentencia.close();
+        conexion.close();
+      }catch(ClassNotFoundException | SQLException e){
+          System.out.println("Error: "+e.getMessage());
+      }
+      }
+      if(negra!=0){
+      // inserta el registro del producto Gran Reserva Etiqueta Negra
+      try{
+        Class.forName(driver);
+        conexion = DriverManager.getConnection(url);
+        sentencia = conexion.createStatement();
+        String sql = "INSERT INTO ingreso_producto ("+
+                "id_user,id_producto,cantidad) VALUES"
+                + " ("+iddd+",4,"+negra+")";
+        sentencia.executeUpdate(sql);
+        sentencia.close();
+        conexion.close();
+      }catch(ClassNotFoundException | SQLException e){
+          System.out.println("Error: "+e.getMessage());
+      }
+      // Actualiza el stock del producto Gran Reserva Etiqueta Negra  
+      try{
+        Class.forName(driver);
+        conexion = DriverManager.getConnection(url);
+        sentencia = conexion.createStatement();
+        String sql = "UPDATE producto SET cantidad=cantidad+"+negra+" WHERE id=4";
+        sentencia.executeUpdate(sql);
+        sentencia.close();
+        conexion.close();
+      }catch(ClassNotFoundException | SQLException e){
+          System.out.println("Error: "+e.getMessage());
+      }
+      }
+      if(azul!=0){
+      // inserta el registro del producto Gran Reserva Etiqueta Azul
+      try{
+        Class.forName(driver);
+        conexion = DriverManager.getConnection(url);
+        sentencia = conexion.createStatement();
+        String sql = "INSERT INTO ingreso_producto ("+
+                "id_user,id_producto,cantidad) VALUES"
+                + " ("+iddd+",5,"+azul+")";
+        sentencia.executeUpdate(sql);
+        sentencia.close();
+        conexion.close();
+      }catch(ClassNotFoundException | SQLException e){
+          System.out.println("Error: "+e.getMessage());
+      }
+      // Actualiza el stock del producto Gran Reserva Etiqueta Azul 
+      try{
+        Class.forName(driver);
+        conexion = DriverManager.getConnection(url);
+        sentencia = conexion.createStatement();
+        String sql = "UPDATE producto SET cantidad=cantidad+"+azul+" WHERE id=5";
+        sentencia.executeUpdate(sql);
+        sentencia.close();
+        conexion.close();
+      }catch(ClassNotFoundException | SQLException e){
+          System.out.println("Error: "+e.getMessage());
+      }
+      }
+      JOptionPane.showMessageDialog(null,"Ingreso realizado con exito!" );
    
     }
     
