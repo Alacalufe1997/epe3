@@ -96,6 +96,8 @@ public class Menu extends javax.swing.JFrame {
         rb_salida = new javax.swing.JRadioButton();
         rb_productos = new javax.swing.JRadioButton();
         btn_acpetproducto = new javax.swing.JButton();
+        jRadioButton1 = new javax.swing.JRadioButton();
+        jRadioButton2 = new javax.swing.JRadioButton();
         jPanel2 = new javax.swing.JPanel();
         rb_agregar = new javax.swing.JRadioButton();
         rb_modificar = new javax.swing.JRadioButton();
@@ -120,6 +122,10 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
+        jRadioButton1.setText("Ver registros de ingreso");
+
+        jRadioButton2.setText("Ver registros de salida");
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
@@ -131,7 +137,9 @@ public class Menu extends javax.swing.JFrame {
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(rb_productos)
                             .addComponent(rb_salida)
-                            .addComponent(rb_ingreso)))
+                            .addComponent(rb_ingreso)
+                            .addComponent(jRadioButton1)
+                            .addComponent(jRadioButton2)))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGap(110, 110, 110)
                         .addComponent(btn_acpetproducto, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -140,15 +148,19 @@ public class Menu extends javax.swing.JFrame {
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(70, 70, 70)
+                .addContainerGap(101, Short.MAX_VALUE)
                 .addComponent(rb_ingreso)
                 .addGap(18, 18, 18)
                 .addComponent(rb_salida)
                 .addGap(18, 18, 18)
                 .addComponent(rb_productos)
-                .addGap(70, 70, 70)
+                .addGap(18, 18, 18)
+                .addComponent(jRadioButton1)
+                .addGap(18, 18, 18)
+                .addComponent(jRadioButton2)
+                .addGap(18, 18, 18)
                 .addComponent(btn_acpetproducto, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(107, Short.MAX_VALUE))
+                .addGap(46, 46, 46))
         );
 
         jTabbedPane1.addTab("Productos", jPanel5);
@@ -358,6 +370,8 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JRadioButton jRadioButton1;
+    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JRadioButton rb_agregar;
     private javax.swing.JRadioButton rb_eliminar;
