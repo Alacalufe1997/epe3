@@ -7,6 +7,7 @@ package Interfaz;
 
 import javax.swing.ImageIcon;
 
+
 /**
  *
  * @author Nicolas
@@ -14,6 +15,7 @@ import javax.swing.ImageIcon;
 public class Login extends javax.swing.JFrame {
 
     Programacion.Sesion ver;
+    
     static String user2;
     public Login() {
         initComponents();
@@ -183,7 +185,13 @@ public class Login extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Login().setVisible(true);
+                try{
+                Splash sp = new Splash();
+                sp.setVisible(true);
+                sp.setSize(625, 364);
+                sp.setLocationRelativeTo(null);
+                }catch(Exception e){System.out.println(""+e.getMessage());}
+//                new Login().setVisible(true);
             }
         });
     }
