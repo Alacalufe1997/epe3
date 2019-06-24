@@ -8,6 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import javax.swing.ImageIcon;
 
 
 public class VerRegistro_salida extends javax.swing.JFrame {
@@ -15,8 +16,10 @@ public class VerRegistro_salida extends javax.swing.JFrame {
     ArrayList<Registro_salida> lista4 = new ArrayList<Registro_salida>();
     public VerRegistro_salida() {
         initComponents();
+        ImageIcon icono = new ImageIcon (Login.class.getResource("/imagenes/barrelxs.png"));
+        this.setIconImage(icono.getImage());
         setLocationRelativeTo(null);
-        setTitle("Andes");
+        setTitle("Los Viñedos");
         setResizable(false);
     }
 

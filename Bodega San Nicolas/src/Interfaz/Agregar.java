@@ -3,6 +3,7 @@ package Interfaz;
 
 import javax.swing.ButtonGroup;
 import Programacion.Bbdd;
+import javax.swing.ImageIcon;
 
 
 public class Agregar extends javax.swing.JFrame {
@@ -10,8 +11,10 @@ public class Agregar extends javax.swing.JFrame {
     Programacion.Bbdd ver;
     public Agregar() {
         initComponents();
+        ImageIcon icono = new ImageIcon (Login.class.getResource("/imagenes/barrelxs.png"));
+        this.setIconImage(icono.getImage());
         setLocationRelativeTo(null);
-        setTitle("Andes");
+        setTitle("Los Viñedos");
         setResizable(false);
         configurarRB();
         ver = new Programacion.Bbdd();
@@ -101,7 +104,8 @@ public class Agregar extends javax.swing.JFrame {
 
         rb_ven.setText("Guardia");
 
-        btn_atras.setText("Atras");
+        btn_atras.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btn_atras.setText("MENU");
         btn_atras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_atrasActionPerformed(evt);
@@ -240,7 +244,7 @@ public class Agregar extends javax.swing.JFrame {
                     .addComponent(rb_bode)
                     .addComponent(rb_ven))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btn_atras, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+                .addComponent(btn_atras, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(22, 22, 22))
         );
 

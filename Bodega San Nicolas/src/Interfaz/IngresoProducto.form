@@ -91,14 +91,14 @@
                           <Component id="btn_menu" min="-2" pref="100" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="53" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace pref="148" max="32767" attributes="0"/>
+                  <EmptySpace pref="136" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -127,7 +127,7 @@
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="cb_azul" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="tf_azul" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="btn_ingresar" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btn_ingresar" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
                   <Component id="btn_menu" min="-2" pref="33" max="-2" attributes="0"/>
@@ -139,26 +139,41 @@
       <SubComponents>
         <Component class="javax.swing.JCheckBox" name="cb_reserva">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="12" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Gran Reserva"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JCheckBox" name="cb_leon">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="12" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Gran Leon"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JCheckBox" name="cb_organico">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="12" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Gran Reserva Organico"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JCheckBox" name="cb_negra">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="12" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Gran Reserva Etiqueta Negra"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JCheckBox" name="cb_azul">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="12" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Gran Reserva Etiqueta Azul"/>
           </Properties>
         </Component>
@@ -174,16 +189,25 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="12" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Seleccione los vinos a ingresar:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel2">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="12" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Cantidad"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="btn_ingresar">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="14" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="INGRESAR"/>
           </Properties>
           <Events>
@@ -192,6 +216,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="btn_menu">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="14" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="MENU"/>
           </Properties>
           <Events>

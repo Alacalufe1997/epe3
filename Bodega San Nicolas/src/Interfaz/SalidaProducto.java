@@ -1,12 +1,15 @@
 
 package Interfaz;
 import Programacion.Bbdd;
+import javax.swing.ImageIcon;
 
 public class SalidaProducto extends javax.swing.JFrame {
 
     Programacion.Bbdd ver;
     public SalidaProducto() {
         initComponents();
+        ImageIcon icono = new ImageIcon (Login.class.getResource("/imagenes/barrelxs.png"));
+        this.setIconImage(icono.getImage());
         setLocationRelativeTo(null);
         setTitle("Los Viñedos");
         setResizable(false);

@@ -1,12 +1,15 @@
 
 package Interfaz;
 import Programacion.Bbdd;
+import javax.swing.ImageIcon;
 
 public class IngresoProducto extends javax.swing.JFrame {
 
     Programacion.Bbdd ver;
     public IngresoProducto() {
         initComponents();
+        ImageIcon icono = new ImageIcon (Login.class.getResource("/imagenes/barrelxs.png"));
+        this.setIconImage(icono.getImage());
         setLocationRelativeTo(null);
         setTitle("Los Viñedos");
         setResizable(false);
@@ -50,20 +53,28 @@ public class IngresoProducto extends javax.swing.JFrame {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Ingreso de productos"));
 
+        cb_reserva.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         cb_reserva.setText("Gran Reserva");
 
+        cb_leon.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         cb_leon.setText("Gran Leon");
 
+        cb_organico.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         cb_organico.setText("Gran Reserva Organico");
 
+        cb_negra.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         cb_negra.setText("Gran Reserva Etiqueta Negra");
 
+        cb_azul.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         cb_azul.setText("Gran Reserva Etiqueta Azul");
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setText("Seleccione los vinos a ingresar:");
 
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel2.setText("Cantidad");
 
+        btn_ingresar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btn_ingresar.setText("INGRESAR");
         btn_ingresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -71,6 +82,7 @@ public class IngresoProducto extends javax.swing.JFrame {
             }
         });
 
+        btn_menu.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btn_menu.setText("MENU");
         btn_menu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -111,12 +123,12 @@ public class IngresoProducto extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(btn_menu, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(53, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(148, Short.MAX_VALUE)
+                .addContainerGap(136, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jLabel2))
@@ -140,7 +152,7 @@ public class IngresoProducto extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cb_azul)
                     .addComponent(tf_azul, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_ingresar))
+                    .addComponent(btn_ingresar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(47, 47, 47)
                 .addComponent(btn_menu, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())

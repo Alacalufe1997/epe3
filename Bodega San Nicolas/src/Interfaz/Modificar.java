@@ -3,6 +3,7 @@ package Interfaz;
 
 
 import Programacion.Bbdd;
+import javax.swing.ImageIcon;
 
 
 public class Modificar extends javax.swing.JFrame {
@@ -10,8 +11,10 @@ public class Modificar extends javax.swing.JFrame {
     Programacion.Bbdd ver;
     public Modificar() {
         initComponents();
+        ImageIcon icono = new ImageIcon (Login.class.getResource("/imagenes/barrelxs.png"));
+        this.setIconImage(icono.getImage());
         setLocationRelativeTo(null);
-        setTitle("Andes");
+        setTitle("Los Viñedos");
         setResizable(false);
         ver = new Programacion.Bbdd();
     }

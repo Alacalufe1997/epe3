@@ -11,6 +11,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
@@ -22,8 +23,10 @@ public class Menu extends javax.swing.JFrame {
     
     public Menu() {
         initComponents();
+        ImageIcon icono = new ImageIcon (Login.class.getResource("/imagenes/barrelxs.png"));
+        this.setIconImage(icono.getImage());
         setLocationRelativeTo(null);
-        setTitle("Andes");
+        setTitle("Los Viñedos");
         setResizable(false);
         configurarRB();
         configurarRB2();
