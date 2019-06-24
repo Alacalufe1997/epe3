@@ -332,6 +332,11 @@ public class Menu extends javax.swing.JFrame {
             vri.setVisible(true);
             this.dispose();
         }
+        if (rb_registroSalida.isSelected()) {
+            VerRegistro_salida vrs = new VerRegistro_salida();
+            vrs.setVisible(true);
+            this.dispose();
+        }
     }//GEN-LAST:event_btn_acpetproductoActionPerformed
 
     /**

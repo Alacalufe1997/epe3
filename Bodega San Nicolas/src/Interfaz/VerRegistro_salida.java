@@ -1,7 +1,7 @@
 
 package Interfaz;
 
-import Programacion.Registro_ingreso;
+import Programacion.Registro_salida;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -10,10 +10,10 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 
-public class VerRegistro_ingreso extends javax.swing.JFrame {
+public class VerRegistro_salida extends javax.swing.JFrame {
 
-    ArrayList<Registro_ingreso> lista3 = new ArrayList<Registro_ingreso>();
-    public VerRegistro_ingreso() {
+    ArrayList<Registro_salida> lista4 = new ArrayList<Registro_salida>();
+    public VerRegistro_salida() {
         initComponents();
         setLocationRelativeTo(null);
         setTitle("Andes");
@@ -41,17 +41,17 @@ public class VerRegistro_ingreso extends javax.swing.JFrame {
 
         tabla_productos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "FECHA INGRESO", "ID USUARIO", "RUT", "ID PRODUCTO", "NOMBRE PRODUCTO", "CANTIDAD"
+                "FECHA INGRESO", "ID USUARIO", "ID PRODUCTO", "NOMBRE PRODUCTO", "CANTIDAD"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, true, true
+                false, false, false, true, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -145,37 +145,35 @@ public class VerRegistro_ingreso extends javax.swing.JFrame {
         Class.forName(driver);
         conexion = DriverManager.getConnection(url);
         sentencia = conexion.createStatement();
-        String sql = "SELECT ingreso_producto.fecha_ingreso,id_user,usuario.rut,id_producto,producto.nombre,ingreso_producto.cantidad FROM ingreso_producto "
-                + "inner join usuario on usuario.id=ingreso_producto.id_user inner join producto on producto.id=ingreso_producto.id_producto";
+        String sql = "SELECT ingreso_producto.fecha_ingreso,id_user,id_producto,producto.nombre,ingreso_producto.cantidad FROM ingreso_producto "
+                + "inner join producto on producto.id=ingreso_producto.id_producto";
         resultados = sentencia.executeQuery(sql);
         while(resultados.next()){
             
             String fecha_ingreso = resultados.getString("fecha_ingreso");
             String id_user = Integer.toString(resultados.getInt("id_user"));
-            String rut = resultados.getString("rut");
             String id_producto = Integer.toString(resultados.getInt("id_producto"));
             String nombre_producto = resultados.getString("nombre");
             String cantidad = Integer.toString(resultados.getInt("cantidad"));
             
-            Registro_ingreso producto = new Registro_ingreso(fecha_ingreso,id_user,rut,id_producto,nombre_producto,cantidad);
-            lista3.add(producto);
+            Registro_salida producto = new Registro_salida(fecha_ingreso,id_user,id_producto,nombre_producto,cantidad);
+            lista4.add(producto);
             
         }
-            String matriz3[][] = new String[lista3.size()][6];
-             for (int i = 0; i < lista3.size(); i++) {
-                 matriz3[i][0] = lista3.get(i).getFecha_ingreso();
-                 matriz3[i][1] = lista3.get(i).getId_user();
-                 matriz3[i][2] = lista3.get(i).getRut();
-                 matriz3[i][3] = lista3.get(i).getId_prodcuto();
-                 matriz3[i][4] = lista3.get(i).getNombre_producto();
-                 matriz3[i][5] = lista3.get(i).getCantidad();
+            String matriz3[][] = new String[lista4.size()][5];
+             for (int i = 0; i < lista4.size(); i++) {
+                 matriz3[i][0] = lista4.get(i).getFecha_ingreso();
+                 matriz3[i][1] = lista4.get(i).getId_user();
+                 matriz3[i][2] = lista4.get(i).getId_prodcuto();
+                 matriz3[i][3] = lista4.get(i).getNombre_producto();
+                 matriz3[i][4] = lista4.get(i).getCantidad();
                  
              }
              
              tabla_productos.setModel(new javax.swing.table.DefaultTableModel(
                      matriz3,
                      new String []{
-                         "FECHA INGRESO","ID USER","RUT","ID PRODUCTO","NOMBRE PRODUCTO","CANTIDAD"
+                         "FECHA INGRESO","ID USER","ID PRODUCTO","NOMBRE PRODUCTO","CANTIDAD"
                      }
              ));
         
@@ -204,21 +202,23 @@ public class VerRegistro_ingreso extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VerRegistro_ingreso.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VerRegistro_salida.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VerRegistro_ingreso.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VerRegistro_salida.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VerRegistro_ingreso.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VerRegistro_salida.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VerRegistro_ingreso.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VerRegistro_salida.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VerRegistro_ingreso().setVisible(true);
+                new VerRegistro_salida().setVisible(true);
             }
         });
     }
