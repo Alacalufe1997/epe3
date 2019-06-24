@@ -100,8 +100,8 @@
                                       <Component id="rb_productos" min="-2" max="-2" attributes="0"/>
                                       <Component id="rb_salida" min="-2" max="-2" attributes="0"/>
                                       <Component id="rb_ingreso" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jRadioButton1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jRadioButton2" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="rb_registroIngreso" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="rb_registroSalida" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
@@ -123,9 +123,9 @@
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="rb_productos" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jRadioButton1" min="-2" max="-2" attributes="0"/>
+                          <Component id="rb_registroIngreso" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jRadioButton2" min="-2" max="-2" attributes="0"/>
+                          <Component id="rb_registroSalida" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="btn_acpetproducto" min="-2" pref="32" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
@@ -157,12 +157,12 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_acpetproductoActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JRadioButton" name="jRadioButton1">
+                <Component class="javax.swing.JRadioButton" name="rb_registroIngreso">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Ver registros de ingreso"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JRadioButton" name="jRadioButton2">
+                <Component class="javax.swing.JRadioButton" name="rb_registroSalida">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Ver registros de salida"/>
                   </Properties>

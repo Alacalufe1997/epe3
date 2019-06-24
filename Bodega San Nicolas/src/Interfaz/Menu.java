@@ -44,6 +44,8 @@ public class Menu extends javax.swing.JFrame {
         producto.add(rb_ingreso);
         producto.add(rb_salida);
         producto.add(rb_productos);
+        producto.add(rb_registroIngreso);
+        producto.add(rb_registroSalida);
         rb_productos.setSelected(true);
     }
     public void bloquear(){
@@ -96,8 +98,8 @@ public class Menu extends javax.swing.JFrame {
         rb_salida = new javax.swing.JRadioButton();
         rb_productos = new javax.swing.JRadioButton();
         btn_acpetproducto = new javax.swing.JButton();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
+        rb_registroIngreso = new javax.swing.JRadioButton();
+        rb_registroSalida = new javax.swing.JRadioButton();
         jPanel2 = new javax.swing.JPanel();
         rb_agregar = new javax.swing.JRadioButton();
         rb_modificar = new javax.swing.JRadioButton();
@@ -122,9 +124,9 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
-        jRadioButton1.setText("Ver registros de ingreso");
+        rb_registroIngreso.setText("Ver registros de ingreso");
 
-        jRadioButton2.setText("Ver registros de salida");
+        rb_registroSalida.setText("Ver registros de salida");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -138,8 +140,8 @@ public class Menu extends javax.swing.JFrame {
                             .addComponent(rb_productos)
                             .addComponent(rb_salida)
                             .addComponent(rb_ingreso)
-                            .addComponent(jRadioButton1)
-                            .addComponent(jRadioButton2)))
+                            .addComponent(rb_registroIngreso)
+                            .addComponent(rb_registroSalida)))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGap(110, 110, 110)
                         .addComponent(btn_acpetproducto, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -155,9 +157,9 @@ public class Menu extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(rb_productos)
                 .addGap(18, 18, 18)
-                .addComponent(jRadioButton1)
+                .addComponent(rb_registroIngreso)
                 .addGap(18, 18, 18)
-                .addComponent(jRadioButton2)
+                .addComponent(rb_registroSalida)
                 .addGap(18, 18, 18)
                 .addComponent(btn_acpetproducto, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(46, 46, 46))
@@ -325,6 +327,11 @@ public class Menu extends javax.swing.JFrame {
             sp.setVisible(true);
             this.dispose();
         }
+        if (rb_registroIngreso.isSelected()) {
+            VerRegistro_ingreso vri = new VerRegistro_ingreso();
+            vri.setVisible(true);
+            this.dispose();
+        }
     }//GEN-LAST:event_btn_acpetproductoActionPerformed
 
     /**
@@ -370,14 +377,14 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JRadioButton rb_agregar;
     private javax.swing.JRadioButton rb_eliminar;
     private javax.swing.JRadioButton rb_ingreso;
     private javax.swing.JRadioButton rb_modificar;
     private javax.swing.JRadioButton rb_productos;
+    private javax.swing.JRadioButton rb_registroIngreso;
+    private javax.swing.JRadioButton rb_registroSalida;
     private javax.swing.JRadioButton rb_salida;
     private javax.swing.JRadioButton rb_ver;
     // End of variables declaration//GEN-END:variables

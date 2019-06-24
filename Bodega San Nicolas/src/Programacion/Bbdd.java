@@ -502,7 +502,7 @@ public class Bbdd {
           System.out.println("Error: "+e.getMessage());
       }
       }
-      JOptionPane.showMessageDialog(null,"Ingreso realizado con exito!" );
+      JOptionPane.showMessageDialog(null,"Extraccion realizada con exito!" );
         
     }
     
