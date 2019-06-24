@@ -308,11 +308,11 @@ public class Menu extends javax.swing.JFrame {
             ip.setVisible(true);
             this.dispose();
         }
-//        if (rb_eliminar.isSelected()) {
-//            Eliminar el = new Eliminar();
-//            el.setVisible(true);
-//            this.dispose();
-//        }
+        if (rb_salida.isSelected()) {
+            SalidaProducto sp = new SalidaProducto();
+            sp.setVisible(true);
+            this.dispose();
+        }
     }//GEN-LAST:event_btn_acpetproductoActionPerformed
 
     /**
