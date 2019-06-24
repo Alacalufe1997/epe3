@@ -19,6 +19,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 public class Sesion {
@@ -44,7 +45,9 @@ public class Sesion {
              if (resultados.next()) {
                  key=1;
                  MN.setVisible(true);
-                 JOptionPane.showMessageDialog(null,"BIENVENIDO \n" + user,"Bienvenida",JOptionPane.DEFAULT_OPTION);
+                 
+                 ImageIcon icono_uva = new ImageIcon (Login.class.getResource("/imagenes/uva2.png"));
+                 JOptionPane.showMessageDialog(null, "BIENVENIDO:  \n" + user,"BIENVENIDO" , JOptionPane.DEFAULT_OPTION, icono_uva);
              }
              if (key==0) {
                  JOptionPane.showMessageDialog(null,"Usuario o Contraseña incorrecto!");
