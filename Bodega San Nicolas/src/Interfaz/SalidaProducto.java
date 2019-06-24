@@ -48,25 +48,35 @@ public class SalidaProducto extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         btn_extraer = new javax.swing.JButton();
         btn_menu = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Salida de productos"));
 
+        cb_reserva.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         cb_reserva.setText("Gran Reserva");
 
+        cb_leon.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         cb_leon.setText("Gran Leon");
 
+        cb_organico.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         cb_organico.setText("Gran Reserva Organico");
 
+        cb_negra.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         cb_negra.setText("Gran Reserva Etiqueta Negra");
 
+        cb_azul.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         cb_azul.setText("Gran Reserva Etiqueta Azul");
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setText("Seleccione los vinos a extraer:");
 
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel2.setText("Cantidad");
 
+        btn_extraer.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btn_extraer.setText("EXTRAER");
         btn_extraer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -74,12 +84,15 @@ public class SalidaProducto extends javax.swing.JFrame {
             }
         });
 
+        btn_menu.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btn_menu.setText("MENU");
         btn_menu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_menuActionPerformed(evt);
             }
         });
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/vino.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -113,13 +126,18 @@ public class SalidaProducto extends javax.swing.JFrame {
                             .addComponent(jLabel2)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(btn_menu, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(56, Short.MAX_VALUE))
+                        .addComponent(btn_menu, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(188, 188, 188)
+                        .addComponent(jLabel3)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(148, Short.MAX_VALUE)
+                .addGap(26, 26, 26)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jLabel2))
@@ -246,6 +264,7 @@ public class SalidaProducto extends javax.swing.JFrame {
     private javax.swing.JCheckBox cb_reserva;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField tf_azul;
     private javax.swing.JTextField tf_leon;
