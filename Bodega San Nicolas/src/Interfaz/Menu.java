@@ -89,7 +89,7 @@ public class Menu extends javax.swing.JFrame {
         sentencia.close();
         conexion.close();
       }catch(ClassNotFoundException | SQLException e){
-          System.out.println("Error: "+e.getMessage());
+          JOptionPane.showMessageDialog(null, "Error: "+e.getMessage(),"Error", JOptionPane.ERROR_MESSAGE);
       }
     }
 

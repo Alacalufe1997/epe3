@@ -233,7 +233,7 @@ public class VerUsuarios extends javax.swing.JFrame {
         sentencia.close();
         conexion.close();
       }catch(ClassNotFoundException | SQLException e){
-          JOptionPane.showMessageDialog(null, "Error: "+e.getMessage());
+          JOptionPane.showMessageDialog(null, "Error: "+e.getMessage(),"Error", JOptionPane.ERROR_MESSAGE);
       }
        
     }

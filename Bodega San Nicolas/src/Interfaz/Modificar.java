@@ -16,6 +16,7 @@ package Interfaz;
 
 import Programacion.Bbdd;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 
 public class Modificar extends javax.swing.JFrame {
@@ -288,6 +289,7 @@ public class Modificar extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_modificarActionPerformed
+        try{
         String nombre=tf_nombre.getText();
         String apellido=tf_apellido.getText();
         int edad= Integer.parseInt(tf_edad.getText());
@@ -299,6 +301,9 @@ public class Modificar extends javax.swing.JFrame {
         String cargo=tf_cargo.getText();
         int ID= Integer.parseInt(tf_id.getText());
         ver.modificarUsuario2(ID,nombre, apellido, edad, usuario, pass, rut, sueldo, fechanac,cargo);
+        }catch(NumberFormatException e){
+            JOptionPane.showMessageDialog(null, "Error: "+e.getMessage(),"Error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_btn_modificarActionPerformed
 
     private void btn_atrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_atrasActionPerformed

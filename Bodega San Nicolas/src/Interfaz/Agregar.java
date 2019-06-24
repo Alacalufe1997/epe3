@@ -16,6 +16,7 @@ package Interfaz;
 import javax.swing.ButtonGroup;
 import Programacion.Bbdd;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 
 public class Agregar extends javax.swing.JFrame {
@@ -279,6 +280,7 @@ public class Agregar extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_ingresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ingresarActionPerformed
+        try{
         String nombre=tf_nombre.getText();
         String apellido=tf_apellido.getText();
         int edad= Integer.parseInt(tf_edad.getText());
@@ -288,6 +290,7 @@ public class Agregar extends javax.swing.JFrame {
         int sueldo=Integer.parseInt(tf_sueldo.getText());
         String fechanac=tf_fechanac.getText();
         String admin,bode,ven;
+        
         if (rb_admin.isSelected()) {
             admin="administrador";
             ver.ingresoUsuario(nombre,apellido,edad,usuario,pass,rut,sueldo,fechanac,admin);
@@ -300,6 +303,10 @@ public class Agregar extends javax.swing.JFrame {
             ven="guardia";
             ver.ingresoUsuario3(nombre,apellido,edad,usuario,pass,rut,sueldo,fechanac,ven);
         }
+        }catch(NumberFormatException e){
+            JOptionPane.showMessageDialog(null, "Error: "+e.getMessage(),"Error", JOptionPane.ERROR_MESSAGE);
+        }
+        
     }//GEN-LAST:event_btn_ingresarActionPerformed
 
     private void btn_atrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_atrasActionPerformed

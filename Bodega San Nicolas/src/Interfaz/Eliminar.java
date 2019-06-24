@@ -14,6 +14,7 @@
 package Interfaz;
 import Programacion.Bbdd;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 public class Eliminar extends javax.swing.JFrame {
 
@@ -148,13 +149,21 @@ public class Eliminar extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        try{
         int id= Integer.parseInt(tf_id.getText());
         ver.mostrarDatos(id);
+        }catch(NumberFormatException e){
+            JOptionPane.showMessageDialog(null, "Error: "+e.getMessage(),"Error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        try{
         int id= Integer.parseInt(tf_id.getText());
         ver.eliminarUsuario(id);
+        }catch(NumberFormatException e){
+            JOptionPane.showMessageDialog(null, "Error: "+e.getMessage(),"Error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**

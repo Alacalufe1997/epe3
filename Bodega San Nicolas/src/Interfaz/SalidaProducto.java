@@ -14,6 +14,7 @@
 package Interfaz;
 import Programacion.Bbdd;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 public class SalidaProducto extends javax.swing.JFrame {
 
@@ -206,6 +207,7 @@ public class SalidaProducto extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_menuActionPerformed
 
     private void btn_extraerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_extraerActionPerformed
+        try{
         int reserva = Integer.parseInt(tf_reserva.getText());
         int leon = Integer.parseInt(tf_leon.getText());
         int negra = Integer.parseInt(tf_negra.getText());
@@ -228,6 +230,9 @@ public class SalidaProducto extends javax.swing.JFrame {
         else{azul=0;}
         String user = Login.user2;
         ver.salidaProducto(user,reserva,leon,organico,negra,azul);
+        }catch(NumberFormatException e){
+            JOptionPane.showMessageDialog(null, "Error: "+e.getMessage(),"Error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_btn_extraerActionPerformed
 
     /**

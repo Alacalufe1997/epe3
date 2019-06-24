@@ -14,6 +14,7 @@
 package Interfaz;
 
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 
 /**
@@ -160,7 +161,7 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_sesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_sesionActionPerformed
-       
+        try{
         String user=tf_usuario.getText();
         String pass=tf_clave.getText();
         user2=user;
@@ -169,6 +170,9 @@ public class Login extends javax.swing.JFrame {
             ver.users(user, pass, key);
             
             this.dispose();
+        }catch(NumberFormatException e){
+            JOptionPane.showMessageDialog(null, "Error: "+e.getMessage(),"Error", JOptionPane.ERROR_MESSAGE);
+        }
         
     }//GEN-LAST:event_btn_sesionActionPerformed
 

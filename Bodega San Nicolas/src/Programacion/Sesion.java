@@ -50,7 +50,7 @@ public class Sesion {
                  JOptionPane.showMessageDialog(null, "BIENVENIDO:  \n" + user,"BIENVENIDO" , JOptionPane.DEFAULT_OPTION, icono_uva);
              }
              if (key==0) {
-                 JOptionPane.showMessageDialog(null,"Usuario o Contraseña incorrecto!");
+                 JOptionPane.showMessageDialog(null, "Usuario o Contraseña incorrecto!","Error", JOptionPane.ERROR_MESSAGE);
                  lg.setVisible(true);
                  
              }
@@ -58,7 +58,7 @@ public class Sesion {
         sentencia.close();
         conexion.close();
       }catch(ClassNotFoundException | SQLException e){
-          System.out.println("Error: "+e.getMessage());
+          JOptionPane.showMessageDialog(null, "Error: "+e.getMessage(),"Error", JOptionPane.ERROR_MESSAGE);
       }
         
         

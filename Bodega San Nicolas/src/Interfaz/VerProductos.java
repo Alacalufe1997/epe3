@@ -21,6 +21,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 
 public class VerProductos extends javax.swing.JFrame {
@@ -204,7 +205,7 @@ public class VerProductos extends javax.swing.JFrame {
         sentencia.close();
         conexion.close();
       }catch(ClassNotFoundException | SQLException e){
-          System.out.println("Error: "+e.getMessage());
+          JOptionPane.showMessageDialog(null, "Error: "+e.getMessage(),"Error", JOptionPane.ERROR_MESSAGE);
       }
        
     }
